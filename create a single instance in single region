@@ -1,0 +1,24 @@
+providers {
+    awseast = "terraform-provider-aws"  
+    awswest = "terraform-provider-aws"  
+}
+
+provider "awseast" {
+    region = "us-east-1"
+}
+
+provider "awswest" {
+    region = "us-west-2"
+}
+
+resource "awswest_instance" "example-west" {
+    ami = "ami-f52c63c5"
+    instance_type = "t2.micro"
+    key_name = "pquerna"
+}
+
+resource "awseast_instance" "example-east" {
+    ami = "ami-d878c3b0"
+    instance_type = "t2.micro"
+    key_name = "pquerna"
+}
